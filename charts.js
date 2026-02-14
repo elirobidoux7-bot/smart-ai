@@ -1,3 +1,10 @@
+<div id="nav"></div>
+<script>
+fetch("nav.html").then(r => r.text()).then(d => {
+  document.getElementById("nav").innerHTML = d;
+});
+</script>
+
 function generatePrices(start) {
   let prices = [start];
   for (let i = 0; i < 10; i++) {
