@@ -1,51 +1,57 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f4f6f8;
+  margin: 0;
   padding: 20px;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: #e5e7eb;
 }
 
-.center {
-  max-width: 400px;
-  margin: auto;
-  text-align: center;
-}
-
-input, button {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-}
-
-button {
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 6px;
+h2, h3 {
+  color: #38bdf8;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 15px;
 }
 
 .card {
-  background: white;
+  background: #020617;
+  border: 1px solid #1e293b;
   padding: 15px;
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(56,189,248,0.15);
 }
 
-.badge {
-  padding: 6px;
-  border-radius: 5px;
+button {
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #020617;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+  background: #020617;
   color: white;
 }
 
-.BUY { background: green; }
-.SELL { background: red; }
-.HOLD { background: gray; }
-
-.waiver {
-  font-size: 14px;
-  text-align: left;
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
 }
+
+.badge.BUY { background: #16a34a; }
+.badge.SELL { background: #dc2626; }
+.badge.HOLD { background: #facc15; color: black; }
+
