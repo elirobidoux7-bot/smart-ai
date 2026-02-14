@@ -33,9 +33,9 @@ const stocks = [
 
 // ===== AI LOGIC =====
 function getAction(change) {
-  if (change > 5) return ["SELL", "High"];
-  if (change < -5) return ["BUY", "Medium"];
-  return ["HOLD", "Low"];
+  if (change > 6) return ["SELL", "High", "Strong upward movement"];
+  if (change < -6) return ["BUY", "Medium", "Strong downward movement"];
+  return ["HOLD", "Low", "Stable movement"];
 }
 
 // ===== DASHBOARD RENDER =====
@@ -56,15 +56,29 @@ if (grid) {
   });
 }
 
-// ===== ANALYZE STOCK (FIXED) =====
+// ===== FILL DROPDOWN AUTOMATICALLY =====
+const select = document.getElementById("symbol");
+if (select) {
+  stocks.forEach(stock => {
+    const option = document.createElement("option");
+    option.value = stock.symbol;
+    option.textContent = stock.symbol;
+    select.appendChild(option);
+  });
+}
+
+// ===== ANALYZE STOCK =====
 function analyze() {
-  const symbol = document.getElementById("symbol").value.toUpperCase();
-  const shares = document.getElementById("shares").value;
+  const symbol = document.getElementById("symbol").value;
+  const shares = Number(document.getElementById("shares").value);
 
-  const found = stocks.find(s => s.symbol === symbol);
+  if (!symbol) {
+    alert("Please select a stock.");
+    return;
+  }
 
-  if (!found) {
-    alert("Stock not found. Please choose one from the dashboard.");
+  if (!shares || shares <= 0) {
+    alert("Please enter a valid number of shares.");
     return;
   }
 
@@ -76,16 +90,18 @@ function analyze() {
 // ===== STOCK PAGE =====
 function loadStock() {
   const symbol = localStorage.getItem("symbol");
-  const shares = localStorage.getItem("shares");
+  const shares = Number(localStorage.getItem("shares"));
 
   const data = stocks.find(s => s.symbol === symbol) || stocks[0];
-  const [action, risk] = getAction(data.change);
+  const [action, risk, reason] = getAction(data.change);
   const value = (data.price * shares).toFixed(2);
 
-  document.getElementById("title").innerText = symbol + " Analysis";
-  document.getElementById("action").innerText = "Action: " + action;
-  document.getElementById("risk").innerText = "Risk: " + risk;
-  document.getElementById("price").innerText = "Price: $" + data.price;
-  document.getElementById("value").innerText = "Total Value: $" + value;
+  document.getElementById("title").innerText = `${symbol} Analysis`;
+  document.getElementById("action").innerText = `Action: ${action}`;
+  document.getElementById("risk").innerText = `Risk: ${risk}`;
+  document.getElementById("price").innerText = `Price: $${data.price}`;
+  document.getElementById("value").innerText = `Total Value: $${value}`;
+  document.getElementById("reason").innerText = `AI Insight: ${reason}`;
 }
+
 
