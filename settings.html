@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Settings – Smart AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>⚙️ Settings</h2>
+
+<label>
+  <input type="checkbox" id="darkMode" checked>
+  Dark Mode
+</label>
+
+<br><br>
+
+<button onclick="resetData()">Reset App Data</button>
+<br><br>
+<a href="dashboard.html">⬅ Back to Dashboard</a>
+
+<script>
+  function resetData() {
+    localStorage.clear();
+    alert("Data cleared");
+  }
+</script>
+
+</body>
+</html>
