@@ -103,5 +103,19 @@ function loadStock() {
   document.getElementById("value").innerText = `Total Value: $${value}`;
   document.getElementById("reason").innerText = `AI Insight: ${reason}`;
 }
+function searchStock() {
+  const query = document.getElementById("search").value.toUpperCase();
+  if (!query) return;
+
+  const fakeStock = {
+    symbol: query,
+    price: (Math.random() * 500 + 10).toFixed(2),
+    change: (Math.random() * 10 - 5).toFixed(2)
+  };
+
+  localStorage.setItem("symbol", fakeStock.symbol);
+  localStorage.setItem("shares", 1);
+  window.location.href = "stock.html";
+}
 
 
