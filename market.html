@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Market – Smart AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>🌍 Market Recommendations</h2>
+<div id="market" class="grid"></div>
+
+<a href="dashboard.html">⬅ Back</a>
+
+<script src="app.js"></script>
+<script>
+  const market = document.getElementById("market");
+  stocks.forEach(s => {
+    market.innerHTML += `
+      <div class="card">
+        <h3>${s.symbol}</h3>
+        <p>Price: $${s.price}</p>
+        <p>Change: ${s.change}%</p>
+      </div>
+    `;
+  });
+</script>
+
+</body>
+</html>
