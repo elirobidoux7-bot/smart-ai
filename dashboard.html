@@ -1,24 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Smart AI – Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>📈 Market Overview</h2>
+  <h2>📈 Market Overview</h2>
 
-<div id="stocks" class="grid"></div>
+  <!-- STOCK GRID -->
+  <div id="stocks" class="grid"></div>
 
-<h3>Your Stock</h3>
-<input id="symbol" placeholder="Stock Symbol">
-<input id="shares" type="number" placeholder="Shares Owned">
-<button onclick="analyze()">Analyze</button>
+  <h3>Your Stock</h3>
 
-<script src="app.js"></script>
+  <!-- STOCK SELECT DROPDOWN -->
+  <select id="symbol">
+    <option value="">Select a stock</option>
+  </select>
+
+  <!-- SHARES INPUT -->
+  <input id="shares" type="number" placeholder="Shares Owned">
+
+  <!-- ANALYZE BUTTON -->
+  <button onclick="analyze()">Analyze</button>
+
+  <!-- MAIN APP LOGIC -->
+  <script src="app.js"></script>
+
+  <!-- EXTRA FEATURES -->
+  <script src="ai-engine.js"></script>
+  <script src="confidence.js"></script>
+  <script src="charts.js"></script>
+  <script src="portfolio.js"></script>
+
 </body>
 </html>
-<script src="ai-engine.js"></script>
-<script src="confidence.js"></script>
-<script src="charts.js"></script>
-<script src="portfolio.js"></script>
+
