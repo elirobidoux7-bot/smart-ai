@@ -1,0 +1,15 @@
+body {
+  background: linear-gradient(135deg, #020617, #0f172a);
+  color: white;
+}
+
+.card {
+  background: #020617;
+  border: 1px solid #1e293b;
+}
+
+button {
+  background: linear-gradient(135deg, #22d3ee, #2563eb);
+  color: black;
+  font-weight: bold;
+}
