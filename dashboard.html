@@ -1,44 +1,27 @@
-<a href="settings.html">⚙️ Settings</a>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Smart AI – Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
 
-  <h2>📈 Market Overview</h2>
-<input id="search" placeholder="Search stock (ex: AAPL, TSLA)">
-<button onclick="searchStock()">Search</button>
+  <!-- NAV GOES HERE -->
+  <div id="nav"></div>
+  <script>
+    fetch("nav.html")
+      .then(r => r.text())
+      .then(d => {
+        document.getElementById("nav").innerHTML = d;
+      });
+  </script>
 
-  <!-- STOCK GRID -->
+  <!-- YOUR EXISTING CONTENT -->
+  <h2>📈 Market Overview</h2>
   <div id="stocks" class="grid"></div>
 
   <h3>Your Stock</h3>
+  <input id="search" placeholder="Search stock">
+  <button onclick="searchStock()">Search</button>
 
-  <!-- STOCK SELECT DROPDOWN -->
-  <select id="symbol">
-    <option value="">Select a stock</option>
-  </select>
-
-  <!-- SHARES INPUT -->
+  <select id="symbol"></select>
   <input id="shares" type="number" placeholder="Shares Owned">
-
-  <!-- ANALYZE BUTTON -->
   <button onclick="analyze()">Analyze</button>
 
-  <!-- MAIN APP LOGIC -->
   <script src="app.js"></script>
-
-  <!-- EXTRA FEATURES -->
-  <script src="ai-engine.js"></script>
-  <script src="confidence.js"></script>
-  <script src="charts.js"></script>
-  <script src="portfolio.js"></script>
-
 </body>
-</html>
 
-<a href="market.html">🌍 Market</a>
