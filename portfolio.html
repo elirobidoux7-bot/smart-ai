@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Portfolio – Smart AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="nav"></div>
+
+<h2>💼 Portfolio Summary</h2>
+<div id="portfolio"></div>
+
+<script src="portfolio.js"></script>
+<script>
+fetch("nav.html").then(r => r.text()).then(d => {
+  document.getElementById("nav").innerHTML = d;
+  loadPortfolio();
+});
+</script>
+
+</body>
+</html>
