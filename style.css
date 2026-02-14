@@ -54,4 +54,16 @@ input, select {
 .badge.BUY { background: #16a34a; }
 .badge.SELL { background: #dc2626; }
 .badge.HOLD { background: #facc15; color: black; }
+.nav {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.nav a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 
