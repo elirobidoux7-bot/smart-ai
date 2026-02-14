@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Watchlist – Smart AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="nav"></div>
+
+<h2>⭐ Watchlist</h2>
+<div id="watchlist" class="grid"></div>
+
+<script src="watchlist.js"></script>
+<script>
+fetch("nav.html").then(r => r.text()).then(d => {
+  document.getElementById("nav").innerHTML = d;
+  loadWatchlist();
+});
+</script>
+
+</body>
+</html>
