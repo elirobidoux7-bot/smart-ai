@@ -1,3 +1,10 @@
+<div id="nav"></div>
+<script>
+fetch("nav.html").then(r => r.text()).then(d => {
+  document.getElementById("nav").innerHTML = d;
+});
+</script>
+
 body {
   background: linear-gradient(135deg, #020617, #0f172a);
   color: white;
