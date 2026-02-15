@@ -5,6 +5,13 @@ fetch("nav.html").then(r => r.text()).then(d => {
 });
 </script>
 
+<div id="nav"></div>
+<script>
+fetch("nav.html").then(r => r.text()).then(d => {
+  document.getElementById("nav").innerHTML = d;
+});
+</script>
+
 function savePortfolio(symbol, shares) {
   localStorage.setItem(
     "portfolio",
