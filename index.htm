@@ -1,52 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Smart AI – User Agreement</title>
+  <title>Smart AI – Dashboard</title>
 
-  <!-- SEO META TAGS -->
-  <meta name="description" content="Smart AI is a stock analysis web app that helps users decide when to buy, sell, or hold stocks using AI-based risk insights.">
-  <meta name="keywords" content="stock app, AI stock analysis, buy sell hold stocks, Smart AI">
-  <meta name="author" content="Smart AI">
-
-  <!-- Mobile support -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="center">
+<body>
 
-  <!-- NAV BAR LOAD -->
-  <div id="nav"></div>
-  <script>
-    fetch("nav.html")
-      .then(r => r.text())
-      .then(d => {
-        document.getElementById("nav").innerHTML = d;
-      });
-  </script>
+  <h1>📊 Smart AI Dashboard</h1>
 
-  <h2>Smart AI User Agreement</h2>
+  <!-- STOCK GRID -->
+  <div id="stocks" class="grid"></div>
 
-  <p class="waiver">
-    By using Smart AI, you acknowledge that this application is for educational
-    and informational purposes only and does not provide financial, investment,
-    or trading advice. Smart AI does not guarantee accuracy or profitability.
-    Investing involves risk, including loss of capital. You agree that Smart AI
-    and its creators are not responsible for any decisions or losses you make.
-  </p>
+  <hr>
 
-  <button onclick="agree()">I Agree & Continue</button>
+  <h3>Your Stock</h3>
 
-  <script>
-    function agree() {
-      localStorage.setItem("waiverAccepted", "true");
-      window.location.href = "login.html";
-    }
-  </script>
+  <!-- STOCK SELECT -->
+  <select id="symbol">
+    <option value="">Select a stock</option>
+  </select>
+
+  <br><br>
+
+  <!-- SHARES INPUT -->
+  <input id="shares" type="number" placeholder="Shares Owned">
+
+  <button onclick="analyze()">Analyze</button>
+
+  <hr>
+
+  <h3>Search Any Stock</h3>
+
+  <input id="search" placeholder="Enter ticker (ex: AAPL)">
+  <button onclick="searchStock()">Search</button>
+
+  <!-- JS -->
+  <script src="app.js"></script>
 
 </body>
 </html>
+
 
 
