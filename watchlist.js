@@ -1,3 +1,10 @@
+<div id="nav"></div>
+<script>
+fetch("nav.html").then(r => r.text()).then(d => {
+  document.getElementById("nav").innerHTML = d;
+});
+</script>
+
 function addToWatchlist(symbol) {
   let list = JSON.parse(localStorage.getItem("watchlist")) || [];
   if (!list.includes(symbol)) {
