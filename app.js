@@ -45,13 +45,19 @@ if (grid) {
   stocks.forEach(s => {
     const [action, risk] = getAction(s.change);
     grid.innerHTML += `
-      <div class="card">
-        <h3>${s.symbol}</h3>
-        <p>Price: $${s.price}</p>
-        <p>Change: ${s.change}%</p>
-        <span class="badge ${action}">${action}</span>
-        <p>Risk: ${risk}</p>
-      </div>
+  <div class="card">
+    <h3>${s.symbol}</h3>
+    <p>Price: $${s.price}</p>
+    <p>Change: ${s.change}%</p>
+    <span class="badge ${action}">${action}</span>
+    <p>Risk: ${risk}</p>
+
+    <button class="watch-btn" onclick="addToWatchlist('${s.symbol}')">
+      ⭐ Add to Watchlist
+    </button>
+  </div>
+`;
+
     `;
   });
 }
@@ -116,6 +122,18 @@ function searchStock() {
   localStorage.setItem("symbol", fakeStock.symbol);
   localStorage.setItem("shares", 1);
   window.location.href = "stock.html";
+}
+// ===== WATCHLIST =====
+function addToWatchlist(symbol) {
+  let list = JSON.parse(localStorage.getItem("watchlist")) || [];
+
+  if (!list.includes(symbol)) {
+    list.push(symbol);
+    localStorage.setItem("watchlist", JSON.stringify(list));
+    alert(symbol + " added to watchlist ⭐");
+  } else {
+    alert(symbol + " is already in your watchlist");
+  }
 }
 
 
