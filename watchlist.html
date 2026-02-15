@@ -1,30 +1,38 @@
-<div id="nav"></div>
-<script>
-fetch("nav.html").then(r => r.text()).then(d => {
-  document.getElementById("nav").innerHTML = d;
-});
-</script>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Watchlist – Smart AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div id="nav"></div>
+  <!-- NAV BAR -->
+  <div id="nav"></div>
 
-<h2>⭐ Watchlist</h2>
-<div id="watchlist" class="grid"></div>
+  <h2>⭐ Watchlist</h2>
 
-<script src="watchlist.js"></script>
-<script>
-fetch("nav.html").then(r => r.text()).then(d => {
-  document.getElementById("nav").innerHTML = d;
-  loadWatchlist();
-});
-</script>
+  <!-- WATCHLIST GRID -->
+  <div id="watchlist" class="grid"></div>
+
+  <!-- LOAD NAV -->
+  <script>
+    fetch("nav.html")
+      .then(r => r.text())
+      .then(d => {
+        document.getElementById("nav").innerHTML = d;
+      });
+  </script>
+
+  <!-- WATCHLIST LOGIC -->
+  <script src="watchlist.js"></script>
+
+  <!-- INIT -->
+  <script>
+    loadWatchlist();
+  </script>
 
 </body>
 </html>
+
