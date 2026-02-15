@@ -72,5 +72,18 @@ input, select {
   text-decoration: none;
   font-weight: bold;
 }
+.watch-btn {
+  margin-top: 10px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  background: #ffd700;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.watch-btn:hover {
+  background: #ffcc00;
+}
 
 
